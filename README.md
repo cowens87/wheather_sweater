@@ -30,7 +30,6 @@ git clone git@github.com:cowens87/whether_sweater.git
 cd whether_sweater
 bundle install
 rails db:{drop,create,migrate,seed}
-
 ```
 
 This is the base repo for the [sweater weather project](https://backend.turing.io/module3/projects/sweater_weather/) used for Turing's Backend Module 3.
@@ -56,9 +55,6 @@ The design strategy of Whether, Sweater? was to fully encapsulate each piece of 
 ## Future Functionality
 - Allow users to include a message or link when a new party is created.
 - Include movie poster on both the discover and movie details page.
-- Enable chat capability via ActionCable.
-- Utilize JavaScript to update discover methods using Ajax.
-- Allow users to add multiple hosts to a party. 
 - Include a token in the email
 
 ## Contributing
