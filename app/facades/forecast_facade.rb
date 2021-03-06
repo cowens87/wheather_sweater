@@ -7,10 +7,10 @@ class ForecastFacade
   end
 
   def self.get_weather(lat, lng)
-    weather = self.weather(lat, lng)
+    weather         = self.weather(lat, lng)
     current_weather = CurrentWeather.new(weather[:current])
-    daily_weather = self.daily_weather(weather)
-    hourly_weather = self.hourly_weather(weather)
+    daily_weather   = self.daily_weather(weather)
+    hourly_weather  = self.hourly_weather(weather)
     Forecast.new(current_weather, daily_weather, hourly_weather)
   end
 
@@ -33,20 +33,16 @@ class ForecastFacade
   end
 
   def self.get_many_hourly_weather(weather)
-    (weather[:hourly]).map do |hour|
-      HourlyWeather.new(hour)
-    end
+    (weather[:hourly]).map { |hour| HourlyWeather.new(hour) }
   end
 
   def self.hourly_weather(weather)
-    (weather[:hourly][0..7]).map do |hour|
-      HourlyWeather.new(hour)
-    end
+    eight_hours = weather[:hourly][0..7]
+    eight_hours.map { |hour| HourlyWeather.new(hour) }
   end
 
   def self.daily_weather(weather)
-    (weather[:daily][0..4]).map do |day|
-      DailyWeather.new(day)
-    end
+    five_days = weather[:daily][0..4]
+    five_days.map { |day| DailyWeather.new(day) }
   end
 end

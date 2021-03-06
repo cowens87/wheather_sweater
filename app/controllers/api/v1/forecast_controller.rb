@@ -1,20 +1,10 @@
 class Api::V1::ForecastController < ApplicationController
   def index
-    if location_params[:location].empty?
-      render json: { body: generate_error }, status: 404
+    if params[:location]
+      render json: ForecastFacade.forecast(params[:location])
     else
-      forecast = ForecastFacade.get_forecast(location_params)
-      render json: ForecastSerializer.new(forecast)
+      render json: { message: 'unsuccessful', error: 'Location not found.' },
+      status: :bad_request
     end
-  end
-
-  private
-
-  def generate_error
-    ['Unable to find forecast without location']
-  end
-
-  def location_params
-    params.permit(:location)
   end
 end
