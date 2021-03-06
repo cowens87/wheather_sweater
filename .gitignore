@@ -26,3 +26,6 @@
 /config/application.yml
 
 /notes.md
+
+# Ignore test coverage
+/coverage/*

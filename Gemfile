@@ -39,6 +39,8 @@ end
 
 group :development, :test do
   gem 'pry'
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :test do
