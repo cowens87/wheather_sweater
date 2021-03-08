@@ -23,13 +23,13 @@ RSpec.describe CurrentWeather, :vcr do
     expect(@current_weather.visibility).to be_a Numeric
     expect(@current_weather.icon).to be_a String
 
-    expect(@current_weather.datetime).to eq('2021-03-06 15:22:30.000000000 -0800')
-    expect(@current_weather.sunrise).to eq('2021-03-06 06:32:10.000000000 -0800')
-    expect(@current_weather.sunset).to eq('2021-03-06 18:07:06.000000000 -0800')
-    expect(@current_weather.temperature).to eq(59.27)
-    expect(@current_weather.feels_like).to eq(51.75)
-    expect(@current_weather.humidity).to eq(54)
-    expect(@current_weather.uvi).to eq(2.07)
+    expect(@current_weather.datetime).to eq('2021-03-07 12:31:38.000000000 -0800')
+    expect(@current_weather.sunrise).to eq('2021-03-07 06:30:43.000000000 -0800')
+    expect(@current_weather.sunset).to eq('2021-03-07 18:08:03.000000000 -0800')
+    expect(@current_weather.temperature).to eq(59.18)
+    expect(@current_weather.feels_like).to eq(49.98)
+    expect(@current_weather.humidity).to eq(44)
+    expect(@current_weather.uvi).to eq(4.56)
     expect(@current_weather.conditions).to eq('clear sky')
     expect(@current_weather.visibility).to eq(10000)
     expect(@current_weather.icon).to eq('01d')
