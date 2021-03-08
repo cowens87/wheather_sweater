@@ -1,10 +1,10 @@
 class Api::V1::ForecastController < ApplicationController
   def index
-    if params[:location]
-      render json: ForecastFacade.forecast(params[:location])
+    if params[:location].present?
+      render json: ForecastSerializer.new(ForecastFacade.get_forecast(params[:location]))
     else
-      render json: { message: 'unsuccessful', error: 'Location not found.' },
-      status: :bad_request
+      render json: { message: 'unsuccessful', error: 'Unable to find location' },
+      status: :not_found
     end
   end
 end

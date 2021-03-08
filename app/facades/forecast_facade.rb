@@ -15,7 +15,7 @@ class ForecastFacade
   end
 
   def self.get_coordinates(location)
-    MapService.get_coordinates(location)
+    MapService.coordinates_by_location(location)
   end
 
   def self.get_forecast_weather(destination)
