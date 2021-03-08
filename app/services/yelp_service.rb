@@ -1,10 +1,10 @@
 class YelpService
-  def self.businesses(location, food_category)
+  def self.businesses(location, arrival_time, food_category)
     response = connection.get('/v3/businesses/search?') do |req|
       req.headers['Authorization'] = "Bearer #{ENV.fetch('YELP_API_KEY')}"
       req.params[:term]            = food_category
       req.params[:location]        = location
-      req.params[:open_now]        = true
+      req.params[:open_at]         = arrival_time
     end
     parse_data(response)
   end
