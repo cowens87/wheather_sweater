@@ -20,7 +20,7 @@ RSpec.describe 'Yelp API Endpoint', :vcr do
       munchie_attr  = munchie[:attributes]
       munchie_frcst = munchie[:attributes][:forecast]
       munchie_rest  = munchie[:attributes][:restaurant]
-  
+
       expect(munchie[:id]).to be_nil
       expect(munchie[:type]).to eq('munchie')
       check_hash_structure(munchie, :type, String)

@@ -1,0 +1,278 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.yelp.com/v3/businesses/search?location=Denver,%20CO&open_at=1615235905&term=hamburger
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.3.0
+      Authorization:
+      - Bearer sS-y4VqLwhIUjli7m2nntUiv1_SslKsjYXB8zpwWY0kt3gkKNGfwBeufUZL4dwMbdlyYjAvbxcuC8S1DUijtab0YkzGguCd0cNbQ9bDvQXM6aTtIdHnP2S9GYbFFYHYx
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      X-Zipkin-Id:
+      - 11d7ae4b1c494f1f
+      Ratelimit-Remaining:
+      - '4989'
+      Ratelimit-Dailylimit:
+      - '5000'
+      Server:
+      - envoy
+      Ratelimit-Resettime:
+      - '2021-03-09T00:00:00+00:00'
+      X-Routing-Service:
+      - routing-main--uswest2-8665dfcd87-nhgvt; site=public_api_v3
+      X-B3-Sampled:
+      - '0'
+      X-Proxied:
+      - 10-69-90-30-uswest2aprod
+      X-Extlb:
+      - 10-69-90-30-uswest2aprod
+      Cache-Control:
+      - max-age=0, no-store, private, no-transform
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Mon, 08 Mar 2021 18:12:23 GMT
+      Via:
+      - 1.1 varnish
+      X-Served-By:
+      - cache-sjc10037-SJC
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"businesses": [{"id": "-EdQ9oCBEnCjRcW4ihOYoA", "alias": "hamburguesas-don-jesus-denver",
+        "name": "Hamburguesas Don Jesus", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/NqsbwSn91vyiAa53T29HrQ/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/hamburguesas-don-jesus-denver?adjust_creative=og9iFEJX9mzjVaTLTJWlVg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=og9iFEJX9mzjVaTLTJWlVg",
+        "review_count": 74, "categories": [{"alias": "mexican", "title": "Mexican"},
+        {"alias": "burgers", "title": "Burgers"}, {"alias": "hotdog", "title": "Hot
+        Dogs"}], "rating": 4.5, "coordinates": {"latitude": 39.7295799255371, "longitude":
+        -105.021514892578}, "transactions": ["delivery"], "price": "$", "location":
+        {"address1": "800 Decatur St", "address2": "", "address3": "", "city": "Denver",
+        "zip_code": "80204", "country": "US", "state": "CO", "display_address": ["800
+        Decatur St", "Denver, CO 80204"]}, "phone": "+17203666906", "display_phone":
+        "(720) 366-6906", "distance": 4431.152773529416}, {"id": "uNoJD6h4y798_E3OP4Z5ew",
+        "alias": "snarfburger-denver-3", "name": "Snarfburger", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/nwj7kNcclI-yJtow3mEhfw/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/snarfburger-denver-3?adjust_creative=og9iFEJX9mzjVaTLTJWlVg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=og9iFEJX9mzjVaTLTJWlVg",
+        "review_count": 36, "categories": [{"alias": "burgers", "title": "Burgers"},
+        {"alias": "hotdogs", "title": "Fast Food"}, {"alias": "tradamerican", "title":
+        "American (Traditional)"}], "rating": 4.0, "coordinates": {"latitude": 39.73394,
+        "longitude": -104.97504}, "transactions": ["delivery"], "price": "$", "location":
+        {"address1": "1001 E 11th Ave", "address2": null, "address3": "", "city":
+        "Denver", "zip_code": "80218", "country": "US", "state": "CO", "display_address":
+        ["1001 E 11th Ave", "Denver, CO 80218"]}, "phone": "+17205739134", "display_phone":
+        "(720) 573-9134", "distance": 434.3705687851355}, {"id": "Ab4iQjEOBfKwzMcE2ouEBQ",
+        "alias": "shake-shack-denver-10", "name": "Shake Shack", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/Y4KM5n9m8GxoJXoflzEipw/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/shake-shack-denver-10?adjust_creative=og9iFEJX9mzjVaTLTJWlVg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=og9iFEJX9mzjVaTLTJWlVg",
+        "review_count": 12, "categories": [{"alias": "burgers", "title": "Burgers"},
+        {"alias": "hotdogs", "title": "Fast Food"}, {"alias": "hotdog", "title": "Hot
+        Dogs"}], "rating": 3.5, "coordinates": {"latitude": 39.72051, "longitude":
+        -104.95796}, "transactions": ["delivery"], "location": {"address1": "260 N
+        Josephine", "address2": null, "address3": "", "city": "Denver", "zip_code":
+        "80206", "country": "US", "state": "CO", "display_address": ["260 N Josephine",
+        "Denver, CO 80206"]}, "phone": "+17205837932", "display_phone": "(720) 583-7932",
+        "distance": 1970.8715829206662}, {"id": "LGnbnpKgStBoFCc2mTv5Pg", "alias":
+        "bad-daddys-burger-bar-denver-2", "name": "Bad Daddy''s Burger Bar", "image_url":
+        "https://s3-media4.fl.yelpcdn.com/bphoto/diz__xikvqSBAB83wBuBEg/o.jpg", "is_closed":
+        false, "url": "https://www.yelp.com/biz/bad-daddys-burger-bar-denver-2?adjust_creative=og9iFEJX9mzjVaTLTJWlVg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=og9iFEJX9mzjVaTLTJWlVg",
+        "review_count": 556, "categories": [{"alias": "burgers", "title": "Burgers"},
+        {"alias": "salad", "title": "Salad"}, {"alias": "cocktailbars", "title": "Cocktail
+        Bars"}], "rating": 4.5, "coordinates": {"latitude": 39.7201192335414, "longitude":
+        -104.951983296959}, "transactions": ["pickup", "delivery"], "price": "$$",
+        "location": {"address1": "240 Milwaukee St", "address2": null, "address3":
+        null, "city": "Denver", "zip_code": "80206", "country": "US", "state": "CO",
+        "display_address": ["240 Milwaukee St", "Denver, CO 80206"]}, "phone": "+13033773032",
+        "display_phone": "(303) 377-3032", "distance": 2318.0311833498818}, {"id":
+        "uAsOPByhA_JiDi1d8K7cjw", "alias": "5280-burger-bar-denver-denver", "name":
+        "5280 Burger Bar - Denver", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/31ImH5RyzEXUAI0BOLTxtA/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/5280-burger-bar-denver-denver?adjust_creative=og9iFEJX9mzjVaTLTJWlVg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=og9iFEJX9mzjVaTLTJWlVg",
+        "review_count": 1560, "categories": [{"alias": "burgers", "title": "Burgers"},
+        {"alias": "tradamerican", "title": "American (Traditional)"}, {"alias": "sportsbars",
+        "title": "Sports Bars"}], "rating": 4.0, "coordinates": {"latitude": 39.74388,
+        "longitude": -104.99082}, "transactions": ["restaurant_reservation", "delivery",
+        "pickup"], "price": "$$", "location": {"address1": "500 16th St", "address2":
+        "Ste 160", "address3": "", "city": "Denver", "zip_code": "80202", "country":
+        "US", "state": "CO", "display_address": ["500 16th St", "Ste 160", "Denver,
+        CO 80202"]}, "phone": "+13038251020", "display_phone": "(303) 825-1020", "distance":
+        2013.9213500303706}, {"id": "DP7imABWfeMnJqPMjQGZ3A", "alias": "shake-shack-denver-9",
+        "name": "Shake Shack", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/Tt51V10YGUUqa50Cnpzscw/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/shake-shack-denver-9?adjust_creative=og9iFEJX9mzjVaTLTJWlVg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=og9iFEJX9mzjVaTLTJWlVg",
+        "review_count": 10, "categories": [{"alias": "burgers", "title": "Burgers"},
+        {"alias": "hotdogs", "title": "Fast Food"}, {"alias": "hotdog", "title": "Hot
+        Dogs"}], "rating": 4.5, "coordinates": {"latitude": 39.74777, "longitude":
+        -105.05681}, "transactions": ["delivery"], "location": {"address1": "5507
+        W 20th Ave", "address2": null, "address3": "", "city": "Denver", "zip_code":
+        "80214", "country": "US", "state": "CO", "display_address": ["5507 W 20th
+        Ave", "Denver, CO 80214"]}, "phone": "", "display_phone": "", "distance":
+        7544.415074949389}, {"id": "1dNcLnawoUlU8qIan7Ymuw", "alias": "bad-mutha-clucka-denver-2",
+        "name": "Bad Mutha Clucka", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/R-qxM8euma1Oci-62naszA/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/bad-mutha-clucka-denver-2?adjust_creative=og9iFEJX9mzjVaTLTJWlVg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=og9iFEJX9mzjVaTLTJWlVg",
+        "review_count": 6, "categories": [{"alias": "chicken_wings", "title": "Chicken
+        Wings"}, {"alias": "burgers", "title": "Burgers"}, {"alias": "hotdogs", "title":
+        "Fast Food"}], "rating": 3.5, "coordinates": {"latitude": 39.781131348978136,
+        "longitude": -104.89114454655761}, "transactions": ["pickup", "delivery"],
+        "location": {"address1": "8316 Northfield Blvd", "address2": "Ste 1610", "address3":
+        null, "city": "Denver", "zip_code": "80238", "country": "US", "state": "CO",
+        "display_address": ["8316 Northfield Blvd", "Ste 1610", "Denver, CO 80238"]},
+        "phone": "+13033534385", "display_phone": "(303) 353-4385", "distance": 8452.051207212093},
+        {"id": "qL1TAAGQNh_7ddxW1U7fOg", "alias": "crown-burgers-denver", "name":
+        "Crown Burgers", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/yrlzhmxSBqF4njvs9hIWIA/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/crown-burgers-denver?adjust_creative=og9iFEJX9mzjVaTLTJWlVg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=og9iFEJX9mzjVaTLTJWlVg",
+        "review_count": 290, "categories": [{"alias": "burgers", "title": "Burgers"},
+        {"alias": "tradamerican", "title": "American (Traditional)"}], "rating": 4.0,
+        "coordinates": {"latitude": 39.6767845153809, "longitude": -104.940330505371},
+        "transactions": ["delivery"], "price": "$", "location": {"address1": "2192
+        S Colorado Blvd", "address2": "", "address3": "", "city": "Denver", "zip_code":
+        "80222", "country": "US", "state": "CO", "display_address": ["2192 S Colorado
+        Blvd", "Denver, CO 80222"]}, "phone": "+13037539696", "display_phone": "(303)
+        753-9696", "distance": 7001.781138922748}, {"id": "mzOAkvH-4WIfQuR3uCs87g",
+        "alias": "hopdoddy-burger-bar-denver", "name": "Hopdoddy Burger Bar", "image_url":
+        "https://s3-media1.fl.yelpcdn.com/bphoto/CdADjEj_McY9D9Mpk6Jvgg/o.jpg", "is_closed":
+        false, "url": "https://www.yelp.com/biz/hopdoddy-burger-bar-denver?adjust_creative=og9iFEJX9mzjVaTLTJWlVg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=og9iFEJX9mzjVaTLTJWlVg",
+        "review_count": 909, "categories": [{"alias": "burgers", "title": "Burgers"},
+        {"alias": "tradamerican", "title": "American (Traditional)"}, {"alias": "beerbar",
+        "title": "Beer Bar"}], "rating": 4.0, "coordinates": {"latitude": 39.7536890899343,
+        "longitude": -104.999132618973}, "transactions": ["delivery", "pickup"], "price":
+        "$$", "location": {"address1": "1747 Wynkoop St", "address2": "", "address3":
+        "", "city": "Denver", "zip_code": "80202", "country": "US", "state": "CO",
+        "display_address": ["1747 Wynkoop St", "Denver, CO 80202"]}, "phone": "+13034462337",
+        "display_phone": "(303) 446-2337", "distance": 3190.558899004638}, {"id":
+        "qtRNJsz1MYEZVidYIft1Tw", "alias": "illegal-burger-capitol-hill-denver", "name":
+        "Illegal Burger - Capitol Hill", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/7DodwAN4XwdutLR6W8CIeQ/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/illegal-burger-capitol-hill-denver?adjust_creative=og9iFEJX9mzjVaTLTJWlVg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=og9iFEJX9mzjVaTLTJWlVg",
+        "review_count": 125, "categories": [{"alias": "burgers", "title": "Burgers"},
+        {"alias": "beerbar", "title": "Beer Bar"}], "rating": 4.0, "coordinates":
+        {"latitude": 39.72607, "longitude": -104.98403}, "transactions": ["delivery",
+        "pickup"], "price": "$$", "location": {"address1": "609 Grant St", "address2":
+        "", "address3": null, "city": "Denver", "zip_code": "80203", "country": "US",
+        "state": "CO", "display_address": ["609 Grant St", "Denver, CO 80203"]}, "phone":
+        "+13038311300", "display_phone": "(303) 831-1300", "distance": 1580.736717023643},
+        {"id": "A1knCcfF__460LVsScHqBg", "alias": "the-49th-denver-3", "name": "The
+        49th", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/7vWCjYNJn4bewmCMxeby5g/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/the-49th-denver-3?adjust_creative=og9iFEJX9mzjVaTLTJWlVg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=og9iFEJX9mzjVaTLTJWlVg",
+        "review_count": 743, "categories": [{"alias": "burgers", "title": "Burgers"},
+        {"alias": "bars", "title": "Bars"}, {"alias": "seafood", "title": "Seafood"}],
+        "rating": 4.5, "coordinates": {"latitude": 39.6336503437154, "longitude":
+        -105.108816453967}, "transactions": ["delivery"], "price": "$$", "location":
+        {"address1": "4550 S Kipling St", "address2": "Ste 6", "address3": "", "city":
+        "Denver", "zip_code": "80127", "country": "US", "state": "CO", "display_address":
+        ["4550 S Kipling St", "Ste 6", "Denver, CO 80127"]}, "phone": "+17202552021",
+        "display_phone": "(720) 255-2021", "distance": 16399.04208066086}, {"id":
+        "d2UMF2kmEXy2AZt6n0Vu3A", "alias": "slaters-50-50-denver", "name": "Slater''s
+        50/50", "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/lRdMH0QSW_Ptfg9MKjq7mw/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/slaters-50-50-denver?adjust_creative=og9iFEJX9mzjVaTLTJWlVg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=og9iFEJX9mzjVaTLTJWlVg",
+        "review_count": 61, "categories": [{"alias": "burgers", "title": "Burgers"},
+        {"alias": "beerbar", "title": "Beer Bar"}], "rating": 4.5, "coordinates":
+        {"latitude": 39.769295, "longitude": -104.974728}, "transactions": ["pickup",
+        "delivery"], "location": {"address1": "3600 Blake St", "address2": null, "address3":
+        "", "city": "Denver", "zip_code": "80205", "country": "US", "state": "CO",
+        "display_address": ["3600 Blake St", "Denver, CO 80205"]}, "phone": "+17203877177",
+        "display_phone": "(720) 387-7177", "distance": 3774.638955032734}, {"id":
+        "JJiugrBcZrNpX0ueUBuvrg", "alias": "cherry-cricket-denver-3", "name": "Cherry
+        Cricket", "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/hirnXSb1GZf0oXR_YBg6Vg/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/cherry-cricket-denver-3?adjust_creative=og9iFEJX9mzjVaTLTJWlVg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=og9iFEJX9mzjVaTLTJWlVg",
+        "review_count": 2540, "categories": [{"alias": "burgers", "title": "Burgers"},
+        {"alias": "sportsbars", "title": "Sports Bars"}, {"alias": "newamerican",
+        "title": "American (New)"}], "rating": 4.0, "coordinates": {"latitude": 39.7196942925966,
+        "longitude": -104.956333474869}, "transactions": ["pickup", "delivery"], "price":
+        "$$", "location": {"address1": "2641 E 2nd Ave", "address2": "", "address3":
+        "", "city": "Denver", "zip_code": "80206", "country": "US", "state": "CO",
+        "display_address": ["2641 E 2nd Ave", "Denver, CO 80206"]}, "phone": "+13033227666",
+        "display_phone": "(303) 322-7666", "distance": 2124.565769374474}, {"id":
+        "dkDIqzZntlNEEj-MiB2qlw", "alias": "park-and-co-denver", "name": "Park & Co",
+        "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/1mYElSaBPlJ9F4eHNithsw/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/park-and-co-denver?adjust_creative=og9iFEJX9mzjVaTLTJWlVg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=og9iFEJX9mzjVaTLTJWlVg",
+        "review_count": 601, "categories": [{"alias": "burgers", "title": "Burgers"},
+        {"alias": "tradamerican", "title": "American (Traditional)"}, {"alias": "breakfast_brunch",
+        "title": "Breakfast & Brunch"}], "rating": 4.0, "coordinates": {"latitude":
+        39.74338, "longitude": -104.98131}, "transactions": ["pickup", "delivery"],
+        "price": "$$", "location": {"address1": "439 E 17th Ave", "address2": "",
+        "address3": "", "city": "Denver", "zip_code": "80203", "country": "US", "state":
+        "CO", "display_address": ["439 E 17th Ave", "Denver, CO 80203"]}, "phone":
+        "+17203286732", "display_phone": "(720) 328-6732", "distance": 1295.850923242416},
+        {"id": "lysEvtIXQqBzZ_FZ839gow", "alias": "bobs-atomic-burgers-golden", "name":
+        "Bob''s Atomic Burgers", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/Z-cMw_ASbsXfd0ju-KvkxA/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/bobs-atomic-burgers-golden?adjust_creative=og9iFEJX9mzjVaTLTJWlVg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=og9iFEJX9mzjVaTLTJWlVg",
+        "review_count": 736, "categories": [{"alias": "burgers", "title": "Burgers"},
+        {"alias": "sandwiches", "title": "Sandwiches"}], "rating": 4.5, "coordinates":
+        {"latitude": 39.7554932, "longitude": -105.2183914}, "transactions": ["delivery"],
+        "price": "$$", "location": {"address1": "1310 Ford St", "address2": "", "address3":
+        "", "city": "Golden", "zip_code": "80401", "country": "US", "state": "CO",
+        "display_address": ["1310 Ford St", "Golden, CO 80401"]}, "phone": "", "display_phone":
+        "", "distance": 21327.369000607672}, {"id": "YtNxcIQBmOJoX3v4-XPwLw", "alias":
+        "my-brothers-bar-denver", "name": "My Brother''s Bar", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/EnlzkKeTJA4af8cWaDYO_w/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/my-brothers-bar-denver?adjust_creative=og9iFEJX9mzjVaTLTJWlVg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=og9iFEJX9mzjVaTLTJWlVg",
+        "review_count": 800, "categories": [{"alias": "bars", "title": "Bars"}, {"alias":
+        "burgers", "title": "Burgers"}, {"alias": "tradamerican", "title": "American
+        (Traditional)"}], "rating": 4.0, "coordinates": {"latitude": 39.7562669895912,
+        "longitude": -105.009279227872}, "transactions": ["pickup", "delivery"], "price":
+        "$", "location": {"address1": "2376 15th St", "address2": "", "address3":
+        "", "city": "Denver", "zip_code": "80202", "country": "US", "state": "CO",
+        "display_address": ["2376 15th St", "Denver, CO 80202"]}, "phone": "+13034559991",
+        "display_phone": "(303) 455-9991", "distance": 4056.739948350276}, {"id":
+        "JSNizJSuj0gZ594nBXhVWQ", "alias": "park-burger-platt-park-denver", "name":
+        "Park Burger - Platt Park", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/X3A7dAoJNyevZ0Ewo9EcTg/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/park-burger-platt-park-denver?adjust_creative=og9iFEJX9mzjVaTLTJWlVg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=og9iFEJX9mzjVaTLTJWlVg",
+        "review_count": 812, "categories": [{"alias": "burgers", "title": "Burgers"},
+        {"alias": "tradamerican", "title": "American (Traditional)"}, {"alias": "sportsbars",
+        "title": "Sports Bars"}], "rating": 4.0, "coordinates": {"latitude": 39.6823485493376,
+        "longitude": -104.980349808363}, "transactions": ["pickup", "delivery"], "price":
+        "$$", "location": {"address1": "1890 S Pearl St", "address2": "", "address3":
+        "", "city": "Denver", "zip_code": "80210", "country": "US", "state": "CO",
+        "display_address": ["1890 S Pearl St", "Denver, CO 80210"]}, "phone": "+17202429951",
+        "display_phone": "(720) 242-9951", "distance": 5975.700269962026}, {"id":
+        "Kjmtip2htzyZNjXbegxfYg", "alias": "chop-shop-casual-urban-eatery-colfax-denver-7",
+        "name": "Chop Shop Casual Urban Eatery Colfax", "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/e7Ml67c1Pa8LDEn2tt6miQ/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/chop-shop-casual-urban-eatery-colfax-denver-7?adjust_creative=og9iFEJX9mzjVaTLTJWlVg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=og9iFEJX9mzjVaTLTJWlVg",
+        "review_count": 1088, "categories": [{"alias": "newamerican", "title": "American
+        (New)"}, {"alias": "burgers", "title": "Burgers"}, {"alias": "salad", "title":
+        "Salad"}], "rating": 4.5, "coordinates": {"latitude": 39.73987, "longitude":
+        -104.92935}, "transactions": ["delivery", "pickup"], "price": "$$", "location":
+        {"address1": "4990 E Colfax Ave", "address2": "", "address3": "", "city":
+        "Denver", "zip_code": "80220", "country": "US", "state": "CO", "display_address":
+        ["4990 E Colfax Ave", "Denver, CO 80220"]}, "phone": "+17205507665", "display_phone":
+        "(720) 550-7665", "distance": 3528.450616806395}, {"id": "PvCfyIq7E0arem4gzUtr9Q",
+        "alias": "tacos-la-tapatia-denver", "name": "Tacos La Tapatia", "image_url":
+        "https://s3-media1.fl.yelpcdn.com/bphoto/kqKpvWUSsL39jj3h5pU2yQ/o.jpg", "is_closed":
+        false, "url": "https://www.yelp.com/biz/tacos-la-tapatia-denver?adjust_creative=og9iFEJX9mzjVaTLTJWlVg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=og9iFEJX9mzjVaTLTJWlVg",
+        "review_count": 5, "categories": [{"alias": "tacos", "title": "Tacos"}], "rating":
+        4.0, "coordinates": {"latitude": 39.779622, "longitude": -104.95563483}, "transactions":
+        ["pickup", "delivery"], "location": {"address1": "4535 Thompson Ct", "address2":
+        null, "address3": "", "city": "Denver", "zip_code": "80216", "country": "US",
+        "state": "CO", "display_address": ["4535 Thompson Ct", "Denver, CO 80216"]},
+        "phone": "", "display_phone": "", "distance": 5058.575413952113}, {"id": "ofjnIluYBf5ksve-yzPhXA",
+        "alias": "junction-food-and-drink-denver-3", "name": "Junction Food & Drink",
+        "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/MyKPo0whT1nWkzZTvlk_pg/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/junction-food-and-drink-denver-3?adjust_creative=og9iFEJX9mzjVaTLTJWlVg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=og9iFEJX9mzjVaTLTJWlVg",
+        "review_count": 21, "categories": [{"alias": "food_court", "title": "Food
+        Court"}, {"alias": "bars", "title": "Bars"}, {"alias": "burgers", "title":
+        "Burgers"}], "rating": 4.5, "coordinates": {"latitude": 39.68054317533, "longitude":
+        -104.938728984656}, "transactions": [], "location": {"address1": "2000 S Colorado
+        Blvd", "address2": null, "address3": "", "city": "Denver", "zip_code": "80222",
+        "country": "US", "state": "CO", "display_address": ["2000 S Colorado Blvd",
+        "Denver, CO 80222"]}, "phone": "+17204007772", "display_phone": "(720) 400-7772",
+        "distance": 6681.6661733042165}], "total": 1200, "region": {"center": {"longitude":
+        -104.97024536132812, "latitude": 39.73552421220229}}}'
+  recorded_at: Mon, 08 Mar 2021 18:12:23 GMT
+recorded_with: VCR 6.0.0
