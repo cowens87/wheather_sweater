@@ -24,3 +24,9 @@
 
 # Ignore application configuration
 /config/application.yml
+
+/notes.md
+
+# Ignore test coverage
+/coverage/*
+.DS_Store
