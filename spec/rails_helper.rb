@@ -80,3 +80,8 @@ VCR.configure do |config|
   config.filter_sensitive_data('<MOVIE_API_KEY>') { ENV['movie_api_key'] }
   config.configure_rspec_metadata!
 end
+
+def check_hash_structure(object, key, data_type)
+  expect(object).to have_key(key)
+  expect(object[key]).to be_a(data_type)
+end
