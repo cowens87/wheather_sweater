@@ -12,8 +12,8 @@ RSpec.describe Munchie, :vcr do
     @biz            = Business.new(businesses)
     @roadtrip       = RoadTripFacade.get_trip(munchies_params)
   end
-  
-  it 'exist and has attributes' do
+
+  it 'exists and has attributes' do
     munchie = Munchie.new(@biz, @roadtrip)
 
     expect(munchie.destination_city).to be_a String
