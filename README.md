@@ -17,7 +17,7 @@ Whether, Sweater? is an API based application, developed to help plan a road tri
 - [Acknowledgements](#acknowledgements)
 
 ## Schema
-![Schema](https://user-images.githubusercontent.com/67389821/107423165-e143f080-6ad0-11eb-8d79-9875185b18d1.png)
+![Schema](https://user-images.githubusercontent.com/67389821/110380385-e2ebd000-800c-11eb-8b4a-6dd3ab274671.png)
 
 ## Technology
    ![](https://img.shields.io/badge/Rails-5.2.4-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a) 
@@ -33,13 +33,12 @@ $ cd whether_sweater
 $ bundle install
 $ rails db:{create,migrate}
 ```
-
-
 * Sign-Up for API Keys
   * [OpenWeather](https://openweathermap.org/api/one-call-api)
   * [MapQuest](https://developer.mapquest.com/documentation/)
   * [Unsplash](https://unsplash.com/documentation)
   * [Yelp](https://www.yelp.com/developers/v3/manage_app)
+
 * Set up API access
 ```
 $ figaro install
@@ -47,7 +46,7 @@ $ figaro install
 In your `config/application.yml` file, input your API keys
 ```
 WEATHER_API_KEY: "<Your OpenWeather API Key>"
-GEOCODING_API_KEY: "<Your MapQuest API Key>"
+MAP_API_KEY: "<Your MapQuest API Key>"
 IMAGE_API_KEY: "<Your Unsplash API Key>"
 YELP_API_KEY: "Bearer <Your Yelp API Key>"
 ```
@@ -56,65 +55,61 @@ This is the base repo for the [sweater weather project](https://backend.turing.i
 ## Design Strategy
 The design strategy of Whether, Sweater? was to fully encapsulate each piece of functionality of the program and minimally store data, while avoiding API consumption limits. 
 
-## Endpoints
+## API Endpoints
 The following endpoints were implemented in this project:
 
 #### Forecast Endpoint
 This forecast endpoint retrieves the weather for a city when given a `location` parameter.
 
-`GET /api/v1/forecast?location=denver,co`
+`GET /api/v1/forecast?location=mountainview,ca`
 
 Example JSON response:
 ```json
 {
-    "data": {
-        "id": null,
-        "type": "forecast",
-        "attributes": {
-            "current_weather": {
-                "datetime": "2021-01-20T07:37:06.000Z",
-                "sunrise": "2021-01-20T14:16:35.000Z",
-                "sunset": "2021-01-21T00:05:12.000Z",
-                "temperature": 29.44,
-                "feels_like": 23.81,
-                "humidity": 65,
-                "uvi": 0,
-                "visibility": 10000,
-                "conditions": "clear sky",
-                "icon": "01n"
-            },
-            "daily_weather": [
-                {
-                    "date": "2021-01-20T19:00:00.000Z",
-                    "sunrise": "2021-01-20T14:16:35.000Z",
-                    "sunset": "2021-01-21T00:05:12.000Z",
-                    "max_temp": 50.65,
-                    "min_temp": 29.44,
-                    "conditions": "clear sky",
-                    "icon": "01d"
-                },
-                // ... the next 4 days of daily data
-            ],
-            "hourly_weather": [
-                {
-                    "time": "07:00:00",
-                    "temperature": 29.44,
-                    "wind_speed": "6.38 mph",
-                    "wind_direction": "from SSW",
-                    "conditions": "clear sky",
-                    "icon": "01n"
-                },
-                // ... the next 7 hours of hourly data
-            ]
-        }
+  "data": {
+    "id": null,
+    "type": "forecast",
+    "attributes": {
+        "current_weather": {
+          "datetime": "2021-03-08T12:52:29.000-08:00",
+          "sunrise": "2021-03-08T06:29:16.000-08:00",
+          "sunset": "2021-03-08T18:09:00.000-08:00",
+          "temperature": 58.35,
+          "feels_like": 52.11,
+          "humidity": 36,
+          "uvi": 4.25,
+          "visibility": 10000,
+          "conditions": "scattered clouds",
+          "icon": "03d"
+      },
+        "daily_weather": [{
+          "date": "2021-03-08",
+          "sunrise": "2021-03-08T06:29:16.000-08:00",
+          "sunset": "2021-03-08T18:09:00.000-08:00",
+          "max_temp": 58.35,
+          "min_temp": 45.82,
+          "conditions": "scattered clouds",
+          "icon": "03d"
+        },
+          // ... the next 4 days of daily data
+      ],
+        "hourly_weather": [{
+          "time": "12:00:00",
+          "temperature": 58.35,
+          "conditions": "scattered clouds",
+          "icon": "03d"
+        },
+          // ... the next 7 hours of hourly data
+      ]
     }
+  }
 }
 ```
 #### Backgrounds
 
 This backgrounds endpoint retrieves a background photo for a city when given a `location` parameter.
 
-`GET /api/v1/backgrounds?location=denver,co`
+`GET /api/v1/backgrounds?location=mountainview,ca`
 
 Example JSON response:
 ```json
@@ -123,12 +118,14 @@ Example JSON response:
         "id": null,
         "type": "image",
         "attributes": {
-            "location": "denver,co",
-            "image_url": "https://images.unsplash.com/photo-1600041161228-519e6dd27bac?crop=entropy&cs=srgb&fm=jpg&ixid=MXwxOTk3MDN8MHwxfHNlYXJjaHwxfHxkZW52ZXIsY298ZW58MHx8fA&ixlib=rb-1.2.1&q=85",
-            "credit": {
-                "source": "unsplash.com",
-                "author": "mikekilcoyne",
-                "logo": "https://unsplash-assets.imgix.net/marketing/press-logotype-stacked.svg?auto=format&fit=crop&q=60"
+            "image": {
+                "location": "Sacramento, CA",
+                "image_url": "https://images.unsplash.com/photo-1584259432764-863c1d73f22d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwyMTI3MjF8MHwxfHNlYXJjaHwxfHxTYWNyYW1lbnRvLCUyMENBfGVufDF8MHx8&ixlib=rb-1.2.1&q=80&w=1080",
+                "credit": {
+                    "source": "https://unsplash.com/",
+                    "author": "Meritt Thomas",
+                    "logo": "https://unsplash.com/@merittthomas"
+                }
             }
         }
     }
@@ -162,7 +159,6 @@ Example JSON response:
   }
 }
 ```
-
 #### User Authentication
 
 This endpoint authenticates an existing user and renders a JSON representation of the existing user.
@@ -225,7 +221,7 @@ Example JSON response:
 }
 ```
 ### Users Table
-- The Users Table represents all registered users for Whether, Sweater? application. Users are represented in the application as the current user and can also be represented as a friend of another registered user.
+- The Users Table represents all authenticated users for Whether, Sweater? application. Users are represented in the application as the current user and can also be represented as a friend of another registered user.
 
 ## Achievements
 - Continuous deployment to Heroku.
@@ -259,4 +255,7 @@ Contributions are what make this community such an amazing and fun place to lear
 Cydnee Owens - [LinkedIn](https://www.linkedin.com/in/cydnee-owens-683a3450/) | [GitHub](https://github.com/cowens87)
 
 ## Acknowledgements
-[The Movie Database](https://developers.themoviedb.org/3/getting-started/introduction)
+- [Open Weather Database](https://openweathermap.org/api)
+- [MapQuest Database](https://developer.mapquest.com/documentation/directions-api/route/get/)
+- [Unsplash Database](https://unsplash.com/developers)
+- [Yelp Database](https://www.yelp.com/developers/documentation/v3/business_search)
