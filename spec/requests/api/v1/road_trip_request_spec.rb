@@ -65,7 +65,7 @@ RSpec.describe 'Roadtrip Api', :vcr do
 
       post '/api/v1/road_trip', headers: headers, params: JSON.generate(road_trip_params)
 
-      error = "{\"body\":\"Missing/empty fields. Please try again\"}"
+      error = "{\"body\":\"All fields are required. Please try again\"}"
       
       expect(response).to_not be_successful
       expect(response.status).to be(404)
@@ -90,7 +90,7 @@ RSpec.describe 'Roadtrip Api', :vcr do
 
       post '/api/v1/road_trip', headers: headers, params: JSON.generate(road_trip_params)
 
-      error = "{\"body\":\"Missing/incorrect API key. Please try again\"}"
+      error = "{\"body\":\"API Key is missing or invalid\"}"
       
       expect(response).to_not be_successful
       expect(response.status).to be(401)
@@ -119,7 +119,7 @@ RSpec.describe 'Roadtrip Api', :vcr do
 
       post '/api/v1/road_trip', headers: headers, params: JSON.generate(road_trip_params)
 
-      error = "{\"body\":\"Missing/incorrect API key. Please try again\"}"
+      error = "{\"body\":\"API Key is missing or invalid\"}"
       
       expect(@user.api_key).to_not eq(road_trip_params[:api_key])
       expect(response).to_not be_successful

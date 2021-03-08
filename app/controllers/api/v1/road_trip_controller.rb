@@ -5,9 +5,9 @@ class Api::V1::RoadTripController < ApplicationController
       roadtrip = RoadTripFacade.get_trip(road_trip_params)
       render json: RoadtripSerializer.new(roadtrip)
     elsif has_req_values?(road_trip_params)
-      render json: { body: 'Missing/empty fields. Please try again' }, status: 404
+      render json: { body: 'All fields are required. Please try again' }, status: 404
     elsif invalid_api_key?(road_trip_params, user)
-      render json: { body: 'Missing/incorrect API key. Please try again' }, status: 401
+      render json: { body: 'API Key is missing or invalid' }, status: 401
     end
   end
 
