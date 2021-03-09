@@ -4,6 +4,7 @@ class Map
               :longitude,
               :status_code,
               :messages
+              
   def initialize(data)
     @id = nil
     @status_code = data[:info][:statuscode]
