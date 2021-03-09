@@ -10,9 +10,11 @@ RSpec.describe ForecastFacade, :vcr do
   end
 
   it 'returns a Forcast object from a given location' do
-    forecast = ForecastFacade.get_weather(@lat, @lng)
+    forecast = ForecastFacade.forecast(@location)
+    # forecast  = ForecastFacade.get_weather(@lat, @lng)
 
     expect(forecast).to be_a Forecast
+    # expect(forecast1).to be_a Forecast
     expect(forecast.current_weather).to be_a CurrentWeather
     expect(forecast.daily_weather[0]).to be_a DailyWeather
     expect(forecast.hourly_weather[0]).to be_a HourlyWeather
@@ -48,26 +50,15 @@ RSpec.describe ForecastFacade, :vcr do
   end
 
   it 'can get many HourlyWeather objects' do
-    many_hourly_weather = ForecastFacade.get_many_hourly_weather(@weather)
-    
-    expect(many_hourly_weather).to be_an Array
-    expect(many_hourly_weather[0]).to be_an HourlyWeather
-    expect(many_hourly_weather[0].conditions).to be_a String
-    expect(many_hourly_weather[0].icon).to be_a String
-    expect(many_hourly_weather[0].temperature).to be_a Float
-    expect(many_hourly_weather.count).to eq(48)
-  end
-
-  it 'can get eight HourlyWeather objects' do
     hourly_weather = ForecastFacade.hourly_weather(@weather)
-    first_hour     = hourly_weather[0]
 
     expect(hourly_weather).to be_an Array
+    expect(hourly_weather[0]).to be_an HourlyWeather
+    expect(hourly_weather[0].conditions).to be_a String
+    expect(hourly_weather[0].icon).to be_a String
+    expect(hourly_weather[0].temperature).to be_a Float
+    
     expect(hourly_weather.count).to eq(8)
-    expect(first_hour).to be_an HourlyWeather
-    expect(first_hour.conditions).to be_a String
-    expect(first_hour.icon).to be_a String
-    expect(first_hour.temperature).to be_a Float
   end
 
   it 'can get DailyWeather objects' do
@@ -75,7 +66,6 @@ RSpec.describe ForecastFacade, :vcr do
     first_day     = daily_weather[0]
 
     expect(daily_weather).to be_an Array
-    expect(daily_weather.count).to eq(5)
     expect(first_day).to be_an DailyWeather
     expect(first_day.conditions).to be_a String
     expect(first_day.icon).to be_a String
@@ -84,5 +74,7 @@ RSpec.describe ForecastFacade, :vcr do
     expect(first_day.min_temp).to be_a Float
     expect(first_day.sunrise).to be_a Time
     expect(first_day.sunset).to be_a Time
+    
+    expect(daily_weather.count).to eq(5)
   end
 end

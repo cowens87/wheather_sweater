@@ -1,15 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'Forecast API Endpoint', :vcr do
-  describe 'happy path' do
+  describe 'happy paths' do
     it 'can request forecast by location ' do
-      forecast_params = {
-                        location: 'denver, co'
-                      }
-      headers         = {
-                        'CONTENT_TYPE': 'application/json',
-                        'ACCEPT': 'application/json'
-                      }
+      forecast_params = { location: 'denver, co' }
+      headers         = { 'CONTENT_TYPE': 'application/json', 'ACCEPT': 'application/json' }
 
       get '/api/v1/forecast', headers: headers, params: forecast_params
 
@@ -77,11 +72,10 @@ RSpec.describe 'Forecast API Endpoint', :vcr do
 
   describe 'sad paths' do
     it 'returns an error if no location is provided' do
-      forecast_params = {
-                          location: ''
-                        }
-  
-      get '/api/v1/forecast', params: forecast_params
+      forecast_params = { location: '' }
+      headers         = { 'CONTENT_TYPE': 'application/json', 'ACCEPT': 'application/json' }
+
+      get '/api/v1/forecast', headers: headers, params: forecast_params
   
       expect(response).to_not be_successful
       expect(response.status).to eq(404)

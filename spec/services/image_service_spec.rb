@@ -10,8 +10,8 @@ RSpec.describe ImageService, :vcr do
 
     check_hash_structure(json, :results, Array)
     check_hash_structure(image, :urls, Hash)
-    check_hash_structure(image[:urls], :regular, String)
     check_hash_structure(image, :user, Hash)
+    check_hash_structure(image[:urls], :regular, String)
     check_hash_structure(image[:user], :name, String)
     check_hash_structure(image[:user], :links, Hash)
     check_hash_structure(image[:user][:links], :html, String)

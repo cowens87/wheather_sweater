@@ -1,48 +1,32 @@
 class ForecastFacade
-  def self.get_forecast(location)
-    map = self.get_coordinates(location)
-    lat = map[:results][0][:locations][0][:latLng][:lat]
-    lng = map[:results][0][:locations][0][:latLng][:lng]
-    self.get_weather(lat, lng)
-  end
+  class << self
+    include Locatable
 
-  def self.get_weather(lat, lng)
-    weather         = self.weather(lat, lng)
-    current_weather = CurrentWeather.new(weather[:current])
-    daily_weather   = self.daily_weather(weather)
-    hourly_weather  = self.hourly_weather(weather)
-    Forecast.new(current_weather, daily_weather, hourly_weather)
-  end
+    def forecast(loc)
+      weather = WeatherService.get_weather(coords(loc)[:lat], coords(loc)[:lng])
+      Forecast.new(current_weather(weather), daily_weather(weather), hourly_weather(weather))
+    end
 
-  def self.get_coordinates(location)
-    MapService.coordinates_by_location(location)
-  end
+    def current_weather(weather)
+      CurrentWeather.new(weather[:current])
+    end
 
-  def self.get_forecast_weather(destination)
-    map = self.get_coordinates(destination)
-    self.get_destination_weather(map)
-  end
+    def daily_weather(weather)
+      weather[:daily][0..4].map { |day| DailyWeather.new(day) }
+    end
 
-  def self.get_destination_weather(lat, lng)
-    weather = self.weather(lat, lng)
-    self.get_many_hourly_weather(weather)
-  end
+    def hourly_weather(weather)
+      weather[:hourly][0..7].map { |hour| HourlyWeather.new(hour) }
+    end
 
-  def self.weather(lat, lng)
-    WeatherService.get_weather(lat, lng)
-  end
+    def get_forecast_weather(destination)
+      map = MapService.coordinates_by_location(location)
+      get_destination_weather(map)
+    end
 
-  def self.get_many_hourly_weather(weather)
-    (weather[:hourly]).map { |hour| HourlyWeather.new(hour) }
-  end
-
-  def self.hourly_weather(weather)
-    eight_hours = weather[:hourly][0..7]
-    eight_hours.map { |hour| HourlyWeather.new(hour) }
-  end
-
-  def self.daily_weather(weather)
-    five_days = weather[:daily][0..4]
-    five_days.map { |day| DailyWeather.new(day) }
+    def get_destination_weather(lat, lng)
+      weather = WeatherService.get_weather(lat, lng)
+      weather[:hourly].map { |hour| HourlyWeather.new(hour) }
+    end
   end
 end
