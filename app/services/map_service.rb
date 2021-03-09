@@ -1,4 +1,3 @@
-  
 class MapService
   class << self
     def coordinates_by_location(location)

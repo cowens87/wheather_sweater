@@ -11,10 +11,8 @@ RSpec.describe ForecastFacade, :vcr do
 
   it 'returns a Forcast object from a given location' do
     forecast = ForecastFacade.forecast(@location)
-    # forecast  = ForecastFacade.get_weather(@lat, @lng)
 
     expect(forecast).to be_a Forecast
-    # expect(forecast1).to be_a Forecast
     expect(forecast.current_weather).to be_a CurrentWeather
     expect(forecast.daily_weather[0]).to be_a DailyWeather
     expect(forecast.hourly_weather[0]).to be_a HourlyWeather
@@ -26,18 +24,6 @@ RSpec.describe ForecastFacade, :vcr do
 
     expect(forecast.daily_weather.count).to eq(5)
     expect(forecast.hourly_weather.count).to eq(8)
-  end
-
-  it 'can return an HourlyWeather' do
-    dest_weather    = ForecastFacade.get_destination_weather(@lat, @lng)
-    dest_weather_1  = dest_weather[0]
-
-    expect(dest_weather_1).to be_a HourlyWeather
-    expect(dest_weather).to be_a Array
-    expect(dest_weather_1.conditions).to be_a String
-    expect(dest_weather_1.icon).to be_a String
-    expect(dest_weather_1.temperature).to be_a Float
-    expect(dest_weather_1.time).to be_a String
   end
 
   it 'can call weather for multiple service calls' do
