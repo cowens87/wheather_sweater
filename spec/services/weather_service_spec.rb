@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'rails_helper'
 
 RSpec.describe WeatherService,  type: :model do
-  it 'can make a successful faraday call to openweathermap',:vcr do
+  it 'can successfully connect to openweathermap',:vcr do
     location = 'mountain view, ca'
     map = MapService.coordinates_by_location(location)
     lat = map[:results][0][:locations][0][:latLng][:lat]
@@ -110,8 +110,6 @@ RSpec.describe WeatherService,  type: :model do
     # expect(forecast[:hourly].first).to have_key(:wind_speed)
     # expect(forecast[:hourly].first[:wind_speed]).to be_a Float
     # expect(forecast[:hourly].first).to have_key(:wind_deg)
-    # expect(forecast[:hourly].first[:wind_deg]).to be_an Integer
-    # expect(forecast[:hourly].first[:wind_deg]).to eq(323)
     # expect(forecast[:hourly].first).to have_key(:weather)
     # expect(forecast[:hourly].first[:weather]).to be_an Array
     # expect(forecast[:hourly].first[:weather].first).to have_key(:description)

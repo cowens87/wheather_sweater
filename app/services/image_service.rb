@@ -1,7 +1,7 @@
 class ImageService
   class << self
     def location_photos(location)
-      response = connection.get('/search/photos?') do |req|
+      response = connection.get('/search/photos') do |req|
         req.params[:client_id]      = ENV['UNSPLASH_API_KEY']
         req.params[:query]          = location
         req.params[:content_filter] = 'high'
