@@ -65,7 +65,7 @@ RSpec.describe 'RoadTrip Facade API', :vcr do
   describe 'edge cases' do
     it 'can round the weather' do
       eta_weather_time         = Time.now + (@trip[:route][:realTime])
-      find_destination_weather = RoadTripFacade.select_destination_weather(eta_weather_time, @dest_weather)
+      find_destination_weather = RoadTripFacade.destination_weather(eta_weather_time, @dest_weather)
       rounded_weather          = RoadTripFacade.weather_rounding(eta_weather_time)
     end
   end

@@ -37,7 +37,7 @@ class RoadTripFacade
     else
       (eta_weather_time + 1).beginning_of_hour
     end
-        eta_weather_time.beginning_of_hour if eta_weather_time.strftime('%M').to_i < 30 ||
+      eta_weather_time.beginning_of_hour if eta_weather_time.strftime('%M').to_i < 30 ||
       (eta_weather_time + 1).beginning_of_hour
   end
 end
