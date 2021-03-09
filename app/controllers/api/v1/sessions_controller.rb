@@ -4,15 +4,11 @@ class Api::V1::SessionsController < ApplicationController
     if user && user.authenticate(sessions_params[:password])
       render json: UsersSerializer.new(user), status: 200
     else
-      render json: { body: generate_error }, status: 404
+      render json: { error: 'invalid credentials' }, status: :bad_request
     end
   end
 
   private
-
-  def generate_error
-    ['Invaild creditials. Please try again']
-  end
 
   def sessions_params
     JSON.parse(request.body.read, symbolize_names: true)

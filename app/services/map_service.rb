@@ -21,7 +21,7 @@ class MapService
     private
     
     def connection 
-      Faraday.new(url: 'http://www.mapquestapi.com')
+      Faraday.new(url: 'https://www.mapquestapi.com')
     end
 
     def parse_data(response)

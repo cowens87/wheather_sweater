@@ -1,128 +1,99 @@
 require 'rails_helper'
 
-RSpec.describe 'User API' do
+RSpec.describe 'User API Endpoint' do
   describe 'user login' do
-    it 'a registered user can login if creditials are correct' do
+    before(:each) do
       User.destroy_all
       ActiveRecord::Base.connection.reset_pk_sequence!('users')
-      user = User.create(email: 'example@email.com', password: 'password')
-
-      body = {
-        'email': 'example@email.com',
-        'password': 'password'
-      }
-
-      headers = {
-        'CONTENT_TYPE': 'application/json',
-        'ACCEPT': 'application/json'
-      }
-
-      post '/api/v1/sessions', headers: headers, params: JSON.generate(body)
-
-      expect(response).to be_successful
-      expect(response.status).to eq(200)
-      expect(response.content_type).to eq('application/json')
-
-      sessions_response = JSON.parse(response.body, symbolize_names: true)
-      expect(sessions_response).to be_a Hash
-      expect(sessions_response).to have_key(:data)
-      expect(sessions_response[:data]).to have_key(:id)
-      expect(sessions_response[:data][:id]).to be_a String
-      expect(sessions_response[:data]).to have_key(:type)
-      expect(sessions_response[:data][:type]).to be_a String
-      expect(sessions_response[:data][:type]).to eq('users')
-      expect(sessions_response[:data]).to have_key(:attributes)
-      expect(sessions_response[:data][:attributes]).to have_key(:email)
-      expect(sessions_response[:data][:attributes][:email]).to be_a String
-      email = 'example@email.com'
-      expect(sessions_response[:data][:attributes][:email]).to eq(email)
-      expect(sessions_response[:data][:attributes]).to have_key(:api_key)
-      expect(sessions_response[:data][:attributes][:api_key]).to be_a String
-      expect(sessions_response[:data][:attributes]).to_not have_key(:password)
-      expect(sessions_response[:data][:attributes]).to_not have_key(:password_digest)
-      expect(sessions_response[:data][:attributes]).to_not have_key(:password_confirmation)
-
-      logged_user = User.find(sessions_response[:data][:id].to_i)
-      expect(logged_user).to be_a User
-      expect(logged_user.email).to be_a String
-      expect(logged_user.email).to eq(body[:email])
-      expect(logged_user.api_key).to be_a String
-      expect(logged_user.api_key).to_not be_empty
+      user = User.create!(email: 'example@email.com', password: 'password', password_confirmation: 'password')
+      @headers = { 'CONTENT_TYPE': 'application/json', 'ACCEPT': 'application/json' }
+      @error   = "{\"error\":\"invalid credentials\"}"
     end
 
-    it 'can send error when login fails (empty email)' do
-      User.destroy_all
-      ActiveRecord::Base.connection.reset_pk_sequence!('users')
-      user = User.create(email: 'example@email.com', password: 'password')
-
-      body = {
-        'email': '',
-        'password': 'password'
-      }
-
-      headers = {
-        'CONTENT_TYPE': 'application/json',
-        'ACCEPT': 'application/json'
-      }
-
-      post '/api/v1/sessions', headers: headers, params: JSON.generate(body)
-
-      expect(response).to_not be_successful
-      expect(response.status).to eq(404)
-      expect(response.content_type).to eq('application/json')
-      expect(response.body).to be_an String
-      error = "{\"body\":[\"Invaild creditials. Please try again\"]}"
-      expect(response.body).to eq(error)
+    describe 'happy paths' do
+      it 'can login a user with correct credentials' do
+        body = {
+                'email': 'example@email.com',
+                'password': 'password'
+              }
+  
+        post '/api/v1/sessions', headers: @headers, params: JSON.generate(body)
+  
+        results         = JSON.parse(response.body, symbolize_names: true)[:data]
+        results_attr    = results[:attributes]
+        registered_user = User.find(results[:id].to_i)
+  
+        expect(response).to be_successful
+        expect(results).to be_a Hash
+  
+        expect(response.status).to eq(200)
+        expect(response.content_type).to eq('application/json')
+        expect(results[:type]).to eq('users')
+        expect(results_attr[:email]).to eq(body[:email])
+  
+        check_hash_structure(results, :id, String)
+        check_hash_structure(results, :type, String)
+        check_hash_structure(results, :attributes, Hash)
+        check_hash_structure(results_attr, :email, String)
+        check_hash_structure(results_attr, :api_key, String)
+     
+        expect(results_attr).to_not have_key(:password)
+        expect(results_attr).to_not have_key(:password_digest)
+        expect(results_attr).to_not have_key(:password_confirmation)
+  
+        expect(registered_user).to be_a User
+        expect(registered_user.email).to be_a String
+        expect(registered_user.email).to eq(body[:email])
+        expect(registered_user.api_key).to be_a String
+        expect(registered_user.api_key).to_not be_empty
+      end
     end
 
-    it 'can send error with login fail (non-matching passwords)' do
-      User.destroy_all
-      ActiveRecord::Base.connection.reset_pk_sequence!('users')
-      user = User.create(email: 'example@email.com', password: 'password')
-
-      body = {
-        'email': 'example@email.com',
-        'password': 'notarealpassword'
-      }
-
-      headers = {
-        'CONTENT_TYPE': 'application/json',
-        'ACCEPT': 'application/json'
-      }
-
-      post '/api/v1/sessions', headers: headers, params: JSON.generate(body)
-
-      expect(response).to_not be_successful
-      expect(response.status).to eq(404)
-      expect(response.content_type).to eq('application/json')
-      expect(response.body).to be_an String
-      error = "{\"body\":[\"Invaild creditials. Please try again\"]}"
-      expect(response.body).to eq(error)
-    end
-
-    it 'can send error with login fail (non-matching email)' do
-      User.destroy_all
-      ActiveRecord::Base.connection.reset_pk_sequence!('users')
-      user = User.create(email: 'example@email.com', password: 'password')
-
-      body = {
-        'email': '@email.com',
-        'password': 'notarealpassword'
-      }
-
-      headers = {
-        'CONTENT_TYPE': 'application/json',
-        'ACCEPT': 'application/json'
-      }
-
-      post '/api/v1/sessions', headers: headers, params: JSON.generate(body)
-
-      expect(response).to_not be_successful
-      expect(response.status).to eq(404)
-      expect(response.content_type).to eq('application/json')
-      expect(response.body).to be_an String
-      error = "{\"body\":[\"Invaild creditials. Please try again\"]}"
-      expect(response.body).to eq(error)
+    describe 'sad paths' do
+      it 'returns an error if email is not provided' do
+        body = {
+                'email': '',
+                'password': 'password'
+              }
+  
+        post '/api/v1/sessions', headers: @headers, params: JSON.generate(body)
+  
+        expect(response).to_not be_successful
+        expect(response.status).to eq(400)
+        expect(response.content_type).to eq('application/json')
+        expect(response.body).to be_an String
+        expect(response.body).to eq(@error)
+      end
+  
+      it 'returns an error if passwords do not match' do
+        body = {
+                'email': 'example@email.com',
+                'password': 'notarealpassword'
+              }
+  
+        post '/api/v1/sessions', headers: @headers, params: JSON.generate(body)
+  
+        expect(response).to_not be_successful
+        expect(response.status).to eq(400)
+        expect(response.content_type).to eq('application/json')
+        expect(response.body).to be_an String
+        expect(response.body).to eq(@error)
+      end
+  
+      it 'returns an error if email do not match' do
+        body = {
+                'email': '@email.com',
+                'password': 'notarealpassword'
+              }
+  
+        post '/api/v1/sessions', headers: @headers, params: JSON.generate(body)
+  
+        expect(response).to_not be_successful
+        expect(response.status).to eq(400)
+        expect(response.content_type).to eq('application/json')
+        expect(response.body).to be_an String
+        expect(response.body).to eq(@error)
+      end
     end
   end
 end

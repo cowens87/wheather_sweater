@@ -16,10 +16,10 @@ RSpec.describe HourlyWeather, :vcr do
     expect(@multi_hour_weather).to be_an Array
     expect(weather_of_the_hour).to be_a HourlyWeather
 
-    expect(weather_of_the_hour.temperature).to eq(59.18)
-    expect(weather_of_the_hour.time).to eq('12:00:00')
-    expect(weather_of_the_hour.conditions).to eq('clear sky')
-    expect(weather_of_the_hour.icon).to eq('01d')
+    expect(weather_of_the_hour.temperature).to eq(55.35)
+    expect(weather_of_the_hour.time).to eq('11:00:00')
+    expect(weather_of_the_hour.conditions).to eq('broken clouds')
+    expect(weather_of_the_hour.icon).to eq('04d')
     
     expect(weather_of_the_hour.time).to_not eq(1615071600) 
     expect(weather_of_the_hour.temperature).to_not eq(293.58)

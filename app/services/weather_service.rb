@@ -14,7 +14,7 @@ class WeatherService
     private
 
     def connection
-      Faraday.new(url: 'http://api.openweathermap.org')
+      Faraday.new(url: 'https://api.openweathermap.org')
     end
 
     def parse_data(response)

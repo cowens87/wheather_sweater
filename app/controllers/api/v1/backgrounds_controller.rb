@@ -1,7 +1,7 @@
 class Api::V1::BackgroundsController < ApplicationController
   def index
     if location_params[:location].empty?
-      render json: { body: generate_error }, status: 400
+      render json: { body: 'Unable to find image without location' }, status: 400
     else
       image = ImageFacade.location_photos(location_params[:location])
       render json: ImageSerializer.new(image)
@@ -9,10 +9,6 @@ class Api::V1::BackgroundsController < ApplicationController
   end
 
   private
-
-  def generate_error
-    ['Unable to find image without location']
-  end
 
   def location_params
     params.permit(:location)

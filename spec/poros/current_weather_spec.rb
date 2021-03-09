@@ -23,16 +23,16 @@ RSpec.describe CurrentWeather, :vcr do
     expect(@current_weather.visibility).to be_a Numeric
     expect(@current_weather.icon).to be_a String
 
-    expect(@current_weather.datetime).to eq('2021-03-07 12:31:38.000000000 -0800')
-    expect(@current_weather.sunrise).to eq('2021-03-07 06:30:43.000000000 -0800')
-    expect(@current_weather.sunset).to eq('2021-03-07 18:08:03.000000000 -0800')
-    expect(@current_weather.temperature).to eq(59.18)
-    expect(@current_weather.feels_like).to eq(49.98)
-    expect(@current_weather.humidity).to eq(44)
-    expect(@current_weather.uvi).to eq(4.56)
-    expect(@current_weather.conditions).to eq('clear sky')
+    expect(@current_weather.datetime).to eq('2021-03-09 11:02:53.000000000 -0800')
+    expect(@current_weather.sunrise).to eq('2021-03-09 06:27:48.000000000 -0800')
+    expect(@current_weather.sunset).to eq('2021-03-09 18:09:56.000000000 -0800')
+    expect(@current_weather.temperature).to eq(55.35)
+    expect(@current_weather.feels_like).to eq(46.83)
+    expect(@current_weather.humidity).to eq(51)
+    expect(@current_weather.uvi).to eq(3.54)
+    expect(@current_weather.conditions).to eq('broken clouds')
     expect(@current_weather.visibility).to eq(10000)
-    expect(@current_weather.icon).to eq('01d')
+    expect(@current_weather.icon).to eq('04d')
 
     expect(@current_weather.datetime).to_not eq(1615073230)
     expect(@current_weather.sunrise).to_not eq(1615079301)
