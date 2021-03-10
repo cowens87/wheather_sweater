@@ -221,7 +221,7 @@ Example JSON response:
 }
 ```
 ### Users Table
-- The Users Table represents all authenticated users for Whether, Sweater? application. Users are represented in the application as the current user and can also be represented as a friend of another registered user.
+- The Users Table represents all authenticated users for Whether, Sweater? application.
 
 ## Achievements
 - Continuous deployment to Heroku.
