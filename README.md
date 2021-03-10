@@ -235,10 +235,6 @@ Example JSON response:
 - Project completed within seven-day time frame.
 - Added functionality via multiple API endpoints to create a dynamic user experience.
 - Authenticated user login via sessions implementation.  
-## Future Functionality
-- Allow users to include a message or link when a new party is created.
-- Include movie poster on both the discover and movie details page.
-- Include a token in the email
 
 ## Contributing
 
@@ -255,7 +251,7 @@ Contributions are what make this community such an amazing and fun place to lear
 Cydnee Owens - [LinkedIn](https://www.linkedin.com/in/cydnee-owens-683a3450/) | [GitHub](https://github.com/cowens87)
 
 ## Acknowledgements
-- [Open Weather Database](https://openweathermap.org/api)
-- [MapQuest Database](https://developer.mapquest.com/documentation/directions-api/route/get/)
-- [Unsplash Database](https://unsplash.com/developers)
-- [Yelp Database](https://www.yelp.com/developers/documentation/v3/business_search)
+- [Open Weather API](https://openweathermap.org/api)
+- [MapQuest API](https://developer.mapquest.com/documentation/directions-api/route/get/)
+- [Unsplash API](https://unsplash.com/developers)
+- [Yelp API](https://www.yelp.com/developers/documentation/v3/business_search)
