@@ -1,7 +1,7 @@
-class WeatherService
+class WeatherService < ApplicationService
   class << self
     def get_weather(lat, lon)
-      response = connection.get("/data/2.5/onecall?") do |req|
+      response = connection(weather).get("/data/2.5/onecall?") do |req|
         req.params[:appid]   = ENV['OPEN_WEATHER_API_KEY']
         req.params[:lat]     = lat
         req.params[:lon]     = lon
@@ -9,16 +9,6 @@ class WeatherService
         req.params[:units]   = 'imperial'
       end
       parse_data(response)
-    end
-
-    private
-
-    def connection
-      Faraday.new(url: 'https://api.openweathermap.org')
-    end
-
-    def parse_data(response)
-      JSON.parse(response.body, symbolize_names: true)
     end
   end
 end
